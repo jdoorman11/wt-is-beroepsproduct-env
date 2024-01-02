@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-container span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0056b3; /* Logo kleur */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 10px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s; /* Voegt een overgangseffect toe */
+}
+
+nav a.active {
+    color: #ffd700; /* Gele tekstkleur */
+    background-color: #0056b3; /* Blauwe achtergrondkleur, dezelfde als het logo */
+    padding: 5px 10px; /* Voegt wat opvulling rond de tekst toe */
+    border-radius: 5px; /* Optioneel: voegt afgeronde hoeken toe */
+}
+
+nav a.active:hover {
+    color: #cca300; /* Donkerdere geel voor hover-effect */
+    background-color: #004494; /* Donkerdere blauw voor hover-effect */
+}
+
+nav a.active:hover {
+    color: #cca300; /* Donkerdere geel voor hover effect */
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #0056b3;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #004494;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #0056b3;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
