@@ -29,7 +29,7 @@
         <p>Informatie over de luchthaven en diensten...</p>
     </main>
     <footer>
-        <p>&copy; 2024 Gelre Airport</p>
+        <p>&copy; 2024 Gelre Airport test</p>
     </footer>
 </body>
 </html>

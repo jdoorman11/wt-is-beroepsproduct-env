@@ -131,3 +131,37 @@ th {
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.register-container {
+    width: auto; /* Maakt de breedte automatisch, waardoor het de volledige breedte van het scherm inneemt */
+    margin-left: 20px; /* Voegt een kleine marge aan de linkerkant toe */
+    padding: 20px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Zorgt ervoor dat de tekst links uitgelijnd is */
+}
+
+.form-group label, .form-group input, button {
+    display: block; /* Maakt elk element een blokelement, zodat het de volledige breedte inneemt */
+    width: 95%; /* Stelt de breedte in, je kunt dit aanpassen naar wens */
+    margin-left: auto;
+    margin-right: auto;
+}

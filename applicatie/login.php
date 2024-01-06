@@ -16,7 +16,7 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="login.php" class="active">Login</a></li>
                     <li><a href="info.php">Vluchtinformatie</a></li>
-                    <li><a href="checkin.php">Checkin</a></li> <!-- Nieuwe link toegevoegd -->
+                    <li><a href="checkin.php">Checkin</a></li>
                     <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
@@ -35,11 +35,13 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Inloggen</button>
+            <div class="register-link">
+                 Heb je nog geen account? <a href="registreer.php">Registreer hier</a>.
+            </div>
         </form>
     </div>
 </body>
 <footer>
-        <!-- Voettekst, hergebruik van bestaande code -->
         <p>&copy; 2024 Gelre Airport</p>
     </footer>
 </html>
