@@ -25,6 +25,8 @@
 <body>
     <main>
         <h2>Vluchtinformatie</h2>
+</form>
+
         <table>
             <thead>
                 <tr>
@@ -39,14 +41,15 @@
                 include 'main.php'; 
 
                 try {
-                    $stmt = $conn->prepare("SELECT vluchtnummer, bestemming, vertrektijd, gate FROM vlucht");
+                    $stmt = $verbinding->prepare("SELECT vluchtnummer, bestemming, vertrektijd, gatecode FROM vlucht");
+
                     $stmt->execute();
 
                     
                     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
                     foreach($stmt->fetchAll() as $row) {
-                        echo "<tr><td>" . $row["vluchtnummer"]. "</td><td>" . $row["bestemming"]. "</td><td>" . $row["vertrektijd"]. "</td><td>" . $row["gate"]. "</td></tr>";
+                        echo "<tr><td>" . $row["vluchtnummer"]. "</td><td>" . $row["bestemming"]. "</td><td>" . $row["vertrektijd"]. "</td><td>" . $row["gatecode"]. "</td></tr>";
                     }
                 } catch(PDOException $e) {
                     echo "Error: " . $e->getMessage();
