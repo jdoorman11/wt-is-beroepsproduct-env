@@ -7,10 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php
+    include 'session.php'; 
+    ?>
     <header>
         <div class="header-container">
             <div class="logo-container">
                 <span>Gelre Airport</span>
+                <?php
+                if (isset($_SESSION['user'])) {
+                    echo "<span>Ingelogd als: " . htmlspecialchars($_SESSION['user']) . "</span>";
+                }
+                ?>
             </div>
             <nav>
                 <ul>
@@ -19,7 +27,11 @@
                     <li><a href="info.php">Vluchtinformatie</a></li>
                     <li><a href="checkin.php">Checkin</a></li>
                     <li><a href="contact.php">Contact</a></li>
-                </ul>
+                    <?php
+        if (isset($_SESSION['user'])) {
+            echo '<li><a href="logout.php" class="logout">Uitloggen</a></li>';
+        }
+        ?>     </ul>
             </nav>
 
         </div>
