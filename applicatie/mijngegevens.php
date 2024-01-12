@@ -10,14 +10,12 @@
     <?php
     include 'session.php'; 
     if (isset($_SESSION['user']) && $_SESSION['rol'] == 'Passagier') {
-        $passagiernummer = $_SESSION['user_id']; // Vervang door de juiste sessievariabele die de passagiernummer bevat
-
-        // Haal vluchtgegevens op
+        $passagiernummer = $_SESSION['user_id']; 
+        
         $vluchtQuery = $verbinding->prepare("SELECT * FROM Vlucht WHERE vluchtnummer IN (SELECT vluchtnummer FROM Passagier WHERE passagiernummer = :passagiernummer)");
         $vluchtQuery->execute(['passagiernummer' => $passagiernummer]);
         $vluchten = $vluchtQuery->fetchAll();
 
-        // Haal bagagegegevens op
         $bagageQuery = $verbinding->prepare("SELECT * FROM BagageObject WHERE passagiernummer = :passagiernummer");
         $bagageQuery->execute(['passagiernummer' => $passagiernummer]);
         $bagage = $bagageQuery->fetchAll();
