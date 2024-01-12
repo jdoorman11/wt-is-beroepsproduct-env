@@ -10,32 +10,37 @@
     <?php
     session_start();
     ?>
-    <header>
-        <div class="header-container">
-            <div class="logo-container">
-                <span>Gelre Airport</span>
-                <?php
-                if (isset($_SESSION['user'])) {
-                    echo "<span>Ingelogd als: " . htmlspecialchars($_SESSION['user']) . "</span>";
-                }
-                ?>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="info.php" class="active">Vluchtinformatie</a></li>
-                    <li><a href="checkin.php">Checkin</a></li>
-                    <li><a href="contact.php">Contact</a></li>
-                    <?php
-                    if (isset($_SESSION['user'])) {
-                        echo '<li><a href="logout.php" class="logout">Uitloggen</a></li>';
-                    }
-                    ?>
-                </ul>
-            </nav>
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <span>Gelre Airport</span>
+            <?php
+            if (isset($_SESSION['user']) && isset($_SESSION['rol'])) {
+                echo "<span>Ingelogd als " . htmlspecialchars($_SESSION['rol']) . ": " . htmlspecialchars($_SESSION['user']) . "</span>";
+            }
+            ?>
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="index.php" class="active">Home</a></li>
+                <?php if (!isset($_SESSION['user'])): ?>
+                    <li><a href="login.php">Login</a></li>
+                <?php endif; ?>
+                <li><a href="info.php">Vluchtinformatie</a></li>
+                <?php if (isset($_SESSION['user']) && $_SESSION['rol'] == 'Passagier'): ?>
+                    <li><a href="mijngegevens.php">Mijn Gegevens</a></li>
+                <?php elseif (isset($_SESSION['user']) && $_SESSION['rol'] == 'Medewerker'): ?>
+                    <li><a href="passagiers.php">Passagiersgegevens</a></li>
+                <?php endif; ?>
+                <li><a href="checkin.php">Checkin</a></li>
+                <?php
+                if (isset($_SESSION['user'])): ?>
+                    <li><a href="logout.php" class="logout">Uitloggen</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
+</header>
     <main>
         <h2>Vluchtinformatie</h2>
     <div class="filter-container">
@@ -46,7 +51,15 @@
             Gate: <input type="text" name="gate">
             Maatschappij: <input type="text" name="maatschappij">
             <input type="submit" name="filter" value="Filter">
+                <?php
+                    if (isset($_SESSION['user']) && $_SESSION['rol'] == 'Medewerker'):
+                    ?>
+                    <a href="vluchttoevoegen.php" class="vlucht-toevoegen">Vlucht Toevoegen</a>
+                    <?php
+                    endif;
+                ?>
         </form>
+
     </div>
         <table>
         <thead>

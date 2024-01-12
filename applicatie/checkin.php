@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gelre Airport</title>
+    <title>Bagage Inchecken - Gelre Airport</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php
     include 'session.php'; 
-    ?>
+?>
 <header>
     <div class="header-container">
         <div class="logo-container">
@@ -22,28 +22,39 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.php" class="active">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <?php if (!isset($_SESSION['user'])): ?>
                     <li><a href="login.php">Login</a></li>
                 <?php endif; ?>
                 <li><a href="info.php">Vluchtinformatie</a></li>
                 <?php if (isset($_SESSION['user']) && $_SESSION['rol'] == 'Passagier'): ?>
                     <li><a href="mijngegevens.php">Mijn Gegevens</a></li>
-                <?php elseif (isset($_SESSION['user']) && $_SESSION['rol'] == 'Medewerker'): ?>
-                    <li><a href="passagiers.php">Passagiersgegevens</a></li>
                 <?php endif; ?>
-                <li><a href="checkin.php">Checkin</a></li>
+                <li><a href="checkin.php" class="active">Checkin</a></li>
                 <?php
-                if (isset($_SESSION['user'])): ?>
-                    <li><a href="logout.php" class="logout">Uitloggen</a></li>
-                <?php endif; ?>
+                if (isset($_SESSION['user'])) {
+                    echo '<li><a href="logout.php" class="logout">Uitloggen</a></li>';
+                }
+                ?>
             </ul>
         </nav>
     </div>
 </header>
     <main>
-        <h2>Welkom bij Gelre Airport</h2>
-        <p>Informatie over de luchthaven en diensten...</p>
+        <div class="register-container">
+            <h2>Bagage Inchecken</h2>
+            <form action="bagage.php" method="post">
+                <div class="form-group">
+                    <label for="vluchtnummer">Vluchtnummer:</label>
+                    <input type="text" id="vluchtnummer" name="vluchtnummer" required>
+                </div>
+                <div class="form-group">
+                    <label for="bagagegewicht">Gewicht van Bagage (kg):</label>
+                    <input type="text" id="bagagegewicht" name="bagagegewicht" required>
+                </div>
+                <button type="submit">Inchecken</button>
+            </form>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Gelre Airport</p>

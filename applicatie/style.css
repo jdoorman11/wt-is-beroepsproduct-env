@@ -15,7 +15,7 @@ body {
 .logo-container span {
     font-size: 24px;
     font-weight: bold;
-    color: #0056b3; /* Logo kleur */
+    color: #0056b3;
 }
 
 nav ul {
@@ -32,23 +32,23 @@ nav ul li {
 nav a {
     color: black;
     text-decoration: none;
-    transition: color 0.3s; /* Voegt een overgangseffect toe */
+    transition: color 0.3s; 
 }
 
 nav a.active {
-    color: #ffd700; /* Gele tekstkleur */
-    background-color: #0056b3; /* Blauwe achtergrondkleur, dezelfde als het logo */
-    padding: 5px 10px; /* Voegt wat opvulling rond de tekst toe */
-    border-radius: 5px; /* Optioneel: voegt afgeronde hoeken toe */
+    color: #ffd700; 
+    background-color: #0056b3;
+    padding: 5px 10px; 
+    border-radius: 5px; 
 }
 
 nav a.active:hover {
-    color: #cca300; /* Donkerdere geel voor hover-effect */
-    background-color: #004494; /* Donkerdere blauw voor hover-effect */
+    color: #cca300;
+    background-color: #004494; 
 }
 
 nav a.active:hover {
-    color: #cca300; /* Donkerdere geel voor hover effect */
+    color: #cca300; 
 }
 
 main {
@@ -147,8 +147,8 @@ tr:nth-child(even) {
 }
 
 .register-container {
-    width: auto; /* Maakt de breedte automatisch, waardoor het de volledige breedte van het scherm inneemt */
-    margin-left: 20px; /* Voegt een kleine marge aan de linkerkant toe */
+    width: auto;
+    margin-left: 20px; 
     padding: 20px;
     border: 1px solid #ddd;
     background: #f9f9f9;
@@ -156,14 +156,38 @@ tr:nth-child(even) {
 
 .form-group {
     margin-bottom: 15px;
-    text-align: left; /* Zorgt ervoor dat de tekst links uitgelijnd is */
+    text-align: left; 
 }
 
 .form-group label, .form-group input, button {
-    display: block; /* Maakt elk element een blokelement, zodat het de volledige breedte inneemt */
-    width: 95%; /* Stelt de breedte in, je kunt dit aanpassen naar wens */
+    display: block; 
+    width: 95%; 
     margin-left: auto;
     margin-right: auto;
+}
+
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    color: #333;
+    font-size: 16px;
+}
+
+.form-group select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.form-group select option {
+    padding: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 .filter-container {
@@ -183,8 +207,8 @@ tr:nth-child(even) {
 }
 
 .filter-container .form-group {
-    flex-basis: 20%; /* Pas de breedte van elke input groep aan */
-    min-width: 180px; /* Minimale breedte voor kleinere schermen */
+    flex-basis: 20%; 
+    min-width: 180px; 
     margin-bottom: 10px;
 }
 
@@ -226,4 +250,21 @@ nav a.logout {
 
 nav a.logout:hover {
     background-color: darkred; 
+}
+
+button.vlucht-toevoegen, a.vlucht-toevoegen {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none; 
+    display: inline-block; 
+    cursor: pointer;
+}
+
+button.vlucht-toevoegen:hover, a.vlucht-toevoegen:hover {
+    background-color: #004494;
+    text-decoration: none; 
 }
