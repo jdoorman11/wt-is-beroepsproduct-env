@@ -9,6 +9,27 @@
 <body>
     <?php
     include 'session.php'; 
+
+    function sanitize_input($data) {
+        return htmlspecialchars(stripslashes(trim($data)));
+    }
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $username = sanitize_input($_POST['username']);
+        $password = sanitize_input($_POST['password']);
+    
+        $stmt = $pdo->prepare('SELECT password FROM users WHERE username = :username');
+        $stmt->execute(['username' => $username]);
+        $user = $stmt->fetch();
+    
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            echo "Login succesvol!";
+        } else {
+            echo "Ongeldige gebruikersnaam of wachtwoord";
+        }
+    }
     ?>
 
 <header>
